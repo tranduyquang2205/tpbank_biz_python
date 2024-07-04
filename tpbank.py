@@ -383,7 +383,7 @@ Yr4ZPChxNrik1CFLxfkesoReXN8kU/8918D0GLNeVt/C\n\
 
 
     def getHistories(self, fromDate="16/06/2023", toDate="16/06/2023", account_number='',page=0,size=300):
-        if not self.is_login:
+        if not self.is_login or time.time() - self.time_login > 300:
                 login = self.doLogin()
                 if not login['success']:
                     return login
