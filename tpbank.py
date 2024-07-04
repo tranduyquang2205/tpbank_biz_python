@@ -187,32 +187,6 @@ Yr4ZPChxNrik1CFLxfkesoReXN8kU/8918D0GLNeVt/C\n\
             'salt': salt.hex(),
             'data': base64.b64encode(ciphertext).decode('utf-8')
         }
-    def get_key_site(self):
-        url = "https://onlinebanking.eximbank.com.vn/api/IB/KHDN/security/getPermission"
-
-        payload = json.dumps({})
-        headers = {
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Connection': 'keep-alive',
-        'Content-Type': 'application/json',
-        'Origin': 'https://onlinebanking.eximbank.com.vn',
-        'Referer': 'https://onlinebanking.eximbank.com.vn/KHDN/account/login-corp?returnUrl=%2Fhome',
-        'Sec-Fetch-Dest': 'empty',
-        'Sec-Fetch-Mode': 'cors',
-        'Sec-Fetch-Site': 'same-origin',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
-        'X-Token': '',
-        'sec-ch-ua': '"Not/A)Brand";v="8", "Chromium";v="126", "Microsoft Edge";v="126"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Windows"'
-        }
-
-        response = self.session.request("POST", url, headers=headers, data=payload)
-        res = response.json()
-        if 'ID' in res:
-            self.public_key = res['ID']
-        return res
 
     def curlPost(self, url, data):
 
