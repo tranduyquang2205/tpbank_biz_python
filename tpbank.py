@@ -214,7 +214,7 @@ Yr4ZPChxNrik1CFLxfkesoReXN8kU/8918D0GLNeVt/C\n\
         if self.sessionId:
             headers['X-Token'] = self.sessionId
         response = self.session.post(url, headers=headers, data=json.dumps(data))
-        # print(response.text)
+        print(response.text)
         result = response.json()
         return result
     def curlGet(self, url):
@@ -257,6 +257,7 @@ Yr4ZPChxNrik1CFLxfkesoReXN8kU/8918D0GLNeVt/C\n\
         }
 
         result = self.curlPost(self.url['login'], param)
+        
         if 'access_token' in result and 'user_name' in result:
             # self.cifNo = result['cifNo']
             self.accessToken = result['access_token']
